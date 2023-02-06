@@ -9,6 +9,7 @@
 	"license": "MIT",
 	"main": "index.js",
 	"exports": {
+		".": "./index.js",
 		"./auto": "./auto.js",
 		"./polyfill": "./polyfill.js",
 		"./implementation": "./implenentation.js",
