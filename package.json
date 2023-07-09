@@ -12,7 +12,7 @@
 		".": "./index.js",
 		"./auto": "./auto.js",
 		"./polyfill": "./polyfill.js",
-		"./implementation": "./implenentation.js",
+		"./implementation": "./implementation.js",
 		"./shim": "./shim.js",
 		"./package.json": "./package.json"
 	},
