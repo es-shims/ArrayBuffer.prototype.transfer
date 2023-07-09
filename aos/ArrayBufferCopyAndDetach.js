@@ -8,8 +8,7 @@ var $ArrayBuffer = GetIntrinsic('%ArrayBuffer%', true);
 
 var callBound = require('call-bind/callBound');
 
-var $byteLength = callBound('%ArrayBuffer.prototype.byteLength%', true)
-	|| function byteLength(ab) { return ab.byteLength; }; // in node < 0.11, byteLength is an own nonconfigurable property
+var byteLength = require('array-buffer-byte-length');
 var $maxByteLength = callBound('%ArrayBuffer.prototype.maxByteLength%', true);
 var copy = function copyAB(src, start, end) {
 	/* globals Uint8Array: false */
@@ -51,7 +50,7 @@ module.exports = function ArrayBufferCopyAndDetach(arrayBuffer, newLength, prese
 
 	var newByteLength;
 	if (typeof newLength === 'undefined') { // step 3
-		newByteLength = $byteLength(arrayBuffer); // step 3.a
+		newByteLength = byteLength(arrayBuffer); // step 3.a
 		abByteLength = newByteLength;
 	} else { // step 4
 		newByteLength = ToIndex(newLength); // step 4.a
@@ -76,7 +75,7 @@ module.exports = function ArrayBufferCopyAndDetach(arrayBuffer, newLength, prese
 	var newBuffer = newMaxByteLength === 'empty' ? new $ArrayBuffer(newByteLength) : new $ArrayBuffer(newByteLength, { maxByteLength: newMaxByteLength });
 
 	if (typeof abByteLength !== 'number') {
-		abByteLength = $byteLength(arrayBuffer);
+		abByteLength = byteLength(arrayBuffer);
 	}
 	var copyLength = min(newByteLength, abByteLength); // step 10
 	newBuffer = $abSlice(arrayBuffer, 0, copyLength); // ??
