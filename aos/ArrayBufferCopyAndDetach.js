@@ -28,9 +28,9 @@ var $abSlice = callBound('%ArrayBuffer.prototype.slice%', true)
 		return ab.slice ? ab.slice(a, b) : copy(ab, a, b); // node 0.8 lacks `slice`
 	};
 
-var DetachArrayBuffer = require('es-abstract/2022/DetachArrayBuffer');
-var IsDetachedBuffer = require('es-abstract/2022/IsDetachedBuffer');
-var ToIndex = require('es-abstract/2022/ToIndex');
+var DetachArrayBuffer = require('es-abstract/2023/DetachArrayBuffer');
+var IsDetachedBuffer = require('es-abstract/2023/IsDetachedBuffer');
+var ToIndex = require('es-abstract/2023/ToIndex');
 
 var IsResizableArrayBuffer = require('./IsResizableArrayBuffer');
 
