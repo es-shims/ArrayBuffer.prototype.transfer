@@ -3,7 +3,7 @@
 var GetIntrinsic = require('get-intrinsic');
 
 var min = GetIntrinsic('%Math.min%');
-var $TypeError = GetIntrinsic('%TypeError%');
+var $TypeError = require('es-errors/type');
 var $ArrayBuffer = GetIntrinsic('%ArrayBuffer%', true);
 
 var callBound = require('call-bind/callBound');
