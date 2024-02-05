@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.5](https://github.com/es-shims/ArrayBuffer.prototype.transfer/compare/v1.0.4...v1.0.5) - 2024-02-04
+
+### Commits
+
+- [Refactor] `IsResizableBuffer` -&gt; `IsFixedLengthArrayBuffer`, per spec [`a51e21f`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/a51e21ff04fa3bf53da22a16be2f7b051c3b7583)
+- [Deps] update `array-buffer-byte-length`, `call-bind`, `define-properties`, `es-abstract`, `get-intrinsic`, `is-array-buffer` [`851e1e4`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/851e1e4c0d1632ea8429fd0bfcad03e4e620f894)
+- [Refactor] use `es-errors` where possible, so things that only need those do not need `get-intrinsic` [`9ff7bef`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/9ff7bef18214973be33feb7a06f10d18d9fac7b3)
+- [Dev Deps] update `aud`, `npmignore`, `object-inspect`, `tape` [`2750cea`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/2750ceae945d7f0b6cbcb5a3a831ce8ab7117d25)
+
 ## [v1.0.4](https://github.com/es-shims/ArrayBuffer.prototype.transfer/compare/v1.0.3...v1.0.4) - 2023-09-01
 
 ### Commits
