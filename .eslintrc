@@ -12,7 +12,7 @@
 				"DetachArrayBuffer",
 				"GetIntrinsic",
 				"IsDetachedBuffer",
-				"IsResizableArrayBuffer",
+				"IsFixedLengthArrayBuffer",
 				"ToIndex",
 			],
 		}],

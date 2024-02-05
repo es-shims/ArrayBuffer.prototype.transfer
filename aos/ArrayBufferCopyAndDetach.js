@@ -32,18 +32,18 @@ var DetachArrayBuffer = require('es-abstract/2023/DetachArrayBuffer');
 var IsDetachedBuffer = require('es-abstract/2023/IsDetachedBuffer');
 var ToIndex = require('es-abstract/2023/ToIndex');
 
-var IsResizableArrayBuffer = require('./IsResizableArrayBuffer');
+var IsFixedLengthArrayBuffer = require('./IsFixedLengthArrayBuffer');
 
 var isArrayBuffer = require('is-array-buffer');
 var isSharedArrayBuffer = require('is-shared-array-buffer');
 
 module.exports = function ArrayBufferCopyAndDetach(arrayBuffer, newLength, preserveResizability) {
-	if (preserveResizability !== 'preserve-resizability' && preserveResizability !== 'fixed-length') {
-		throw new $TypeError('`preserveResizability` must be "preserve-resizability" or "fixed-length"');
+	if (preserveResizability !== 'PRESERVE-RESIZABILITY' && preserveResizability !== 'FIXED-LENGTH') {
+		throw new $TypeError('`preserveResizability` must be ~PRESERVE-RESIZABILITY~ or ~FIXED-LENGTH~');
 	}
 
 	if (!isArrayBuffer(arrayBuffer) || isSharedArrayBuffer(arrayBuffer)) {
-		throw new $TypeError('`arrayBuffer` must be an ArrayBuffer'); // step 1
+		throw new $TypeError('`arrayBuffer` must be an ArrayBuffer'); // steps 1 - 2
 	}
 
 	var abByteLength;
@@ -61,10 +61,10 @@ module.exports = function ArrayBufferCopyAndDetach(arrayBuffer, newLength, prese
 	}
 
 	var newMaxByteLength;
-	if (preserveResizability === 'preserve-resizability' && IsResizableArrayBuffer(arrayBuffer)) { // step 6
+	if (preserveResizability === 'PRESERVE-RESIZABILITY' && IsFixedLengthArrayBuffer(arrayBuffer)) { // step 6
 		newMaxByteLength = $maxByteLength(arrayBuffer); // step 6.a
 	} else { // step 7
-		newMaxByteLength = 'empty'; // step 7.a
+		newMaxByteLength = 'EMPTY'; // step 7.a
 	}
 
 	// commented out since there's no way to set or access this key
@@ -72,7 +72,7 @@ module.exports = function ArrayBufferCopyAndDetach(arrayBuffer, newLength, prese
 	// 8. If arrayBuffer.[[ArrayBufferDetachKey]] is not undefined, throw a TypeError exception.
 
 	// 9. Let newBuffer be ? AllocateArrayBuffer(%ArrayBuffer%, newByteLength, newMaxByteLength).
-	var newBuffer = newMaxByteLength === 'empty' ? new $ArrayBuffer(newByteLength) : new $ArrayBuffer(newByteLength, { maxByteLength: newMaxByteLength });
+	var newBuffer = newMaxByteLength === 'EMPTY' ? new $ArrayBuffer(newByteLength) : new $ArrayBuffer(newByteLength, { maxByteLength: newMaxByteLength });
 
 	if (typeof abByteLength !== 'number') {
 		abByteLength = byteLength(arrayBuffer);
