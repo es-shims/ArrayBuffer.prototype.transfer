@@ -5,6 +5,7 @@ var GetIntrinsic = require('get-intrinsic');
 var min = GetIntrinsic('%Math.min%');
 var $TypeError = require('es-errors/type');
 var $ArrayBuffer = GetIntrinsic('%ArrayBuffer%', true);
+var $Uint8Array = GetIntrinsic('%Uint8Array%', true);
 
 var callBound = require('call-bind/callBound');
 
@@ -78,7 +79,15 @@ module.exports = function ArrayBufferCopyAndDetach(arrayBuffer, newLength, prese
 		abByteLength = byteLength(arrayBuffer);
 	}
 	var copyLength = min(newByteLength, abByteLength); // step 10
-	newBuffer = $abSlice(arrayBuffer, 0, copyLength); // ??
+	if (newByteLength > copyLength) {
+		var taNew = new $Uint8Array(newBuffer);
+		var taOld = new $Uint8Array(arrayBuffer);
+		for (var i = 0; i < copyLength; i++) {
+			taNew[i] = taOld[i];
+		}
+	} else {
+		newBuffer = $abSlice(arrayBuffer, 0, copyLength); // ? optimization for when the new buffer will not be larger than the old one
+	}
 	/*
 	11. Let fromBlock be arrayBuffer.[[ArrayBufferData]].
 	12. Let toBlock be newBuffer.[[ArrayBufferData]].

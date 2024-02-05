@@ -21,7 +21,11 @@
 	"overrides": [
 		{
 			"files": "test/**",
+			"globals": {
+				"Uint8Array": false,
+			},
 			"rules": {
+				"max-lines-per-function": "off",
 			},
 		},
 	],
