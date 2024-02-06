@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.7](https://github.com/es-shims/ArrayBuffer.prototype.transfer/compare/v1.0.6...v1.0.7) - 2024-02-05
+
+### Commits
+
+- [Fix] `ArrayBufferCopyAndDetach`: properly handle moving to a larger buffer [`e283e98`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/e283e98ba5446541ebf2a1b133100b12be7324f6)
+- [Deps] update `es-errors` [`4514b29`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/4514b299292c204585e518250b70a7e039874d23)
+
 ## [v1.0.6](https://github.com/es-shims/ArrayBuffer.prototype.transfer/compare/v1.0.5...v1.0.6) - 2024-02-05
 
 ### Commits
