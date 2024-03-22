@@ -1,6 +1,6 @@
 {
 	"name": "arraybuffer.prototype.transfer",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "ES Proposal spec-compliant shim for ArrayBuffer.prototype.transfer",
 	"author": "Jordan Harband <ljharb@gmail.com>",
 	"funding": {

@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.8](https://github.com/es-shims/ArrayBuffer.prototype.transfer/compare/v1.0.7...v1.0.8) - 2024-03-22
+
+### Commits
+
+- [Deps] update `call-bind`, `es-abstract`, `get-intrinsic`, `is-shared-array-buffer` [`4d3cd2d`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/4d3cd2d7dd5737f90e9881af6afb12eb22c0cb04)
+- [actions] remove redundant finisher [`448d456`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/448d456c4f357936bade260289397d0bf5650eae)
+- [Dev Deps] update `tape` [`09eb435`](https://github.com/es-shims/ArrayBuffer.prototype.transfer/commit/09eb435a960dd84b618578e65db00bd7668bb587)
+
 ## [v1.0.7](https://github.com/es-shims/ArrayBuffer.prototype.transfer/compare/v1.0.6...v1.0.7) - 2024-02-05
 
 ### Commits
